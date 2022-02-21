@@ -1,3 +1,7 @@
+body {
+  background-image: linear-gradient(to right, black, red);
+}
+
 .nav-container {
   display: flex;
   gap: 2rem;
@@ -21,17 +25,50 @@
 
 .main-product-container {
   margin-top: 4rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4rem;
 }
 
 .main-product {
   width: 30rem;
   text-align: center;
+  position: relative;
 }
 
 .main-product-text {
   font-size: 4rem;
   text-transform: uppercase;
   font-weight: 700;
+  color: white;
+}
+
+.main-product-description {
+  color: gray;
+}
+
+img {
+  border-radius: 2rem;
+}
+
+.main-product-price {
+  background-color: black;
+  color: white;
+  border-radius: 50% 50%;
+  width: 7rem;
+  height: 7rem;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: -2rem;
+  right: -2rem;
+}
+
+.price {
+  text-align: center;
+  margin: 0 auto;
+  font-weight: 700;
+  font-size: 2rem;
 }
 
 html {
