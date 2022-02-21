@@ -1,0 +1,36 @@
+.nav-container {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    // grid-auto-flow: row;
+    margin-top: 3rem;
+}
+
+.nav-category {
+    flex-basis: 15rem;
+    background-image: linear-gradient( 120deg, hsl(0deg 100% 50%) 0%, hsl(359deg 93% 49%) 2%, hsl(358deg 86% 47%) 6%, hsl(358deg 81% 46%) 14%, hsl(358deg 75% 44%) 30%, hsl(358deg 70% 41%) 51%, hsl(358deg 66% 39%) 68%, hsl(359deg 61% 36%) 78%, hsl(359deg 56% 33%) 86%, hsl(359deg 50% 31%) 91%, hsl(359deg 45% 28%) 95%, hsl(359deg 38% 24%) 97%, hsl(360deg 31% 21%) 99%, hsl(0deg 21% 18%) 100%);
+    min-height: 5rem;
+    width: 15rem;
+    border-radius: 1rem;
+    align-items: center;
+    text-align: center;
+}
+
+.nav-category-text {
+    color: white;
+}
+
+.main-product-container {
+    margin-top: 4rem;
+}
+
+.main-product {
+    width: 30rem;
+    text-align: center;
+}
+
+.main-product-text {
+    font-size: 4rem;
+    text-transform: uppercase;
+    font-weight: 700;
+}
