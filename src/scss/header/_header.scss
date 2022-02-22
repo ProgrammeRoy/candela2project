@@ -1,5 +1,5 @@
 body {
-    background-image: linear-gradient( to right, black, red);
+    background: linear-gradient(to left, #ce3737, #4b134f);
 }
 
 .nav-container {
@@ -12,9 +12,10 @@ body {
 
 .nav-category {
     flex-basis: 15rem;
-    background-image: linear-gradient( 120deg, hsl(0deg 100% 50%) 0%, hsl(359deg 93% 49%) 2%, hsl(358deg 86% 47%) 6%, hsl(358deg 81% 46%) 14%, hsl(358deg 75% 44%) 30%, hsl(358deg 70% 41%) 51%, hsl(358deg 66% 39%) 68%, hsl(359deg 61% 36%) 78%, hsl(359deg 56% 33%) 86%, hsl(359deg 50% 31%) 91%, hsl(359deg 45% 28%) 95%, hsl(359deg 38% 24%) 97%, hsl(360deg 31% 21%) 99%, hsl(0deg 21% 18%) 100%);
+    background: hsla(0, 0%, 0%, 0.103);
     min-height: 5rem;
     width: 15rem;
+    box-shadow: 1.6px 1.6px 5.3px rgba(0, 0, 0, 0.075), 5.4px 5.4px 17.9px rgba(0, 0, 0, 0.108), 24px 24px 80px rgba(0, 0, 0, 0.18);
     border-radius: 1rem;
     align-items: center;
     text-align: center;
@@ -25,7 +26,7 @@ body {
 }
 
 .main-product-container {
-    margin-top: 4rem;
+    margin-top: 8rem;
     display: flex;
     flex-wrap: wrap;
     gap: 4rem;
@@ -70,4 +71,8 @@ img {
     margin: 0 auto;
     font-weight: 700;
     font-size: 2rem;
+}
+
+.category1 {
+    background: linear-gradient( 180deg, #1f4037, #99f2c8);
 }
