@@ -1,6 +1,6 @@
 @use 'base/variables' as v;
 body {
-    background: linear-gradient(to left, #ce3737, #4b134f);
+    background: linear-gradient(to right, v.$primary_color, v.$gray_color);
 }
 
 .nav-container {
@@ -9,14 +9,15 @@ body {
     flex-wrap: wrap;
     // grid-auto-flow: row;
     margin-top: 3rem;
+    justify-content: center;
 }
 
 .nav-category {
     flex-basis: 15rem;
-    background: hsla(0, 0%, 0%, 0.103);
+    background: v.$thirty_color;
     min-height: 5rem;
     width: 15rem;
-    box-shadow: 1.6px 1.6px 5.3px rgba(0, 0, 0, 0.075), 5.4px 5.4px 17.9px rgba(0, 0, 0, 0.108), 24px 24px 80px rgba(0, 0, 0, 0.18);
+    box-shadow: 0.4rem, 0.4rem, 0.9rem, v.$thirty_color;
     border-radius: 1rem;
     align-items: center;
     text-align: center;
@@ -26,7 +27,7 @@ body {
 .nav-category-text {
     color: white;
     font-weight: 400;
-    font-size: 1.8rem;
+    font-size: 2rem;
 }
 
 .main-product-container {
@@ -34,32 +35,18 @@ body {
     display: flex;
     flex-wrap: wrap;
     gap: 4rem;
+    justify-content: center;
 }
 
 .main-product {
     width: 30rem;
+    margin-top: 3rem;
     text-align: center;
     position: relative;
 }
 
-.main-product-text {
-    font-size: 3rem;
-    text-transform: uppercase;
-    font-weight: 300;
-    color: white;
-}
-
-.main-product-description {
-    color: rgb(165, 164, 164);
-}
-
-img {
-    border-radius: 2rem;
-}
-
 .main-product-price {
-    background-color: black;
-    color: white;
+    background-color: v.$secondary_color;
     border-radius: 50% 50%;
     width: 7rem;
     height: 7rem;
@@ -71,12 +58,30 @@ img {
 }
 
 .price {
+    color: white;
     text-align: center;
     margin: 0 auto;
     font-weight: 700;
-    font-size: 2rem;
+    font-size: 4rem;
+}
+
+.main-product-text {
+    font-size: 3rem;
+    text-transform: uppercase;
+    font-weight: 300;
+    padding-top: 2rem;
+    color: v.$secondary_color;
+}
+
+.main-product-description {
+    color: v.$forty_color;
+    margin-top: 0.5rem;
+}
+
+img {
+    border-radius: 2rem;
 }
 
 .category1 {
-    background: linear-gradient( 180deg, #1f4037, #99f2c8);
+    background: v.$action_color;
 }
