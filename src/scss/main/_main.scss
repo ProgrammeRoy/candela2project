@@ -1,1 +1,52 @@
 @use 'base/variables' as v;
+.main-product-container {
+    margin-top: 8rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4rem;
+    justify-content: center;
+}
+
+.main-product {
+    width: 30rem;
+    margin-top: 3rem;
+    text-align: center;
+    position: relative;
+}
+
+.main-product-price-container {
+    background-color: v.$secondary_color;
+    border-radius: 50% 50%;
+    width: 7rem;
+    height: 7rem;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: -2rem;
+    right: -2rem;
+}
+
+.main-product-price-number {
+    color: white;
+    text-align: center;
+    margin: 0 auto;
+    font-weight: 700;
+    font-size: 4rem;
+}
+
+.main-product-name {
+    font-size: 3rem;
+    text-transform: uppercase;
+    font-weight: 300;
+    padding-top: 2rem;
+    color: v.$secondary_color;
+}
+
+.main-product-description {
+    color: v.$forty_color;
+    margin-top: 0.5rem;
+}
+
+img {
+    border-radius: 2rem;
+}

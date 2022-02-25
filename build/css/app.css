@@ -28,6 +28,18 @@ body {
   font-size: 2rem;
 }
 
+.nav-category-background-active {
+  background: #EB3137;
+}
+
+.main-product-text {
+  font-family: "Montserrat", sans-serif;
+}
+
+.main-product-description {
+  font-family: "Montserrat", sans-serif;
+}
+
 .main-product-container {
   margin-top: 8rem;
   display: flex;
@@ -43,7 +55,7 @@ body {
   position: relative;
 }
 
-.main-product-price {
+.main-product-price-container {
   background-color: #EAA91C;
   border-radius: 50% 50%;
   width: 7rem;
@@ -55,7 +67,7 @@ body {
   right: -2rem;
 }
 
-.price {
+.main-product-price-number {
   color: white;
   text-align: center;
   margin: 0 auto;
@@ -63,7 +75,7 @@ body {
   font-size: 4rem;
 }
 
-.main-product-text {
+.main-product-name {
   font-size: 3rem;
   text-transform: uppercase;
   font-weight: 300;
@@ -78,18 +90,6 @@ body {
 
 img {
   border-radius: 2rem;
-}
-
-.category1 {
-  background: #EB3137;
-}
-
-.main-product-text {
-  font-family: "Montserrat", sans-serif;
-}
-
-.main-product-description {
-  font-family: "Montserrat", sans-serif;
 }
 
 html {

@@ -15,89 +15,344 @@
 <body>
     <div class="container">
         <nav class="nav-container">
-            <div class="nav-category category1">
+            <div id="category1" class="nav-category">
                 <h3 class="nav-category-text">APPETIZERS</h3>
             </div>
-            <div class="nav-category category2">
+            <div id="category2" class="nav-category">
                 <h3 class="nav-category-text">PASTAS</h3>
             </div>
-            <div class="nav-category category3">
+            <div id="category3" class="nav-category">
                 <h3 class="nav-category-text">TACU TACU</h3>
             </div>
-            <div class="nav-category category4">
+            <div id="category4" class="nav-category">
                 <h3 class="nav-category-text">CEVICHES</h3>
             </div>
-            <div class="nav-category category5">
+            <div id="category5" class="nav-category">
                 <h3 class="nav-category-text">CHIFA</h3>
             </div>
-            <div class="nav-category category6">
+            <div id="category6" class="nav-category">
                 <h3 class="nav-category-text">SOUPS</h3>
             </div>
-            <div class="nav-category category7">
+            <div id="category7" class="nav-category">
                 <h3 class="nav-category-text">CARNES / MEATS</h3>
             </div>
-            <div class="nav-category category8">
+            <div id="category8" class="nav-category">
                 <h3 class="nav-category-text">POLLOS</h3>
             </div>
-            <div class="nav-category category9">
+            <div id="category9" class="nav-category">
                 <h3 class="nav-category-text">SEAFOOD</h3>
             </div>
-            <div class="nav-category category10">
+            <div id="category10" class="nav-category">
                 <h3 class="nav-category-text">INDIVIDUAL ORDERS</h3>
             </div>
-            <div class="nav-category category11">
+            <div id="category11" class="nav-category">
                 <h3 class="nav-category-text">WEEKEND SPECIALS</h3>
             </div>
-            <div class="nav-category category12">
+            <div id="category12" class="nav-category">
                 <h3 class="nav-category-text">Desayuno / Domingos</h3>
             </div>
         </nav>
 
         <main>
-            <div class="main-product-container">
-                <div class="main-product">
-                    <div class="main-product-price">
-                        <p class="price"> $6</p>
-                    </div>
-                    <img src="src/img/anticuchos.png" alt="Anticuchos">
-                    <p class="main-product-text">Anticuchos</p>
-                    <div class="main-product-description">Peruvian style cow heart shish kaob</div>
-                </div>
-                <div class="main-product">
-                    <div class="main-product-price">
-                        <p class="price">$8</p>
-                    </div>
-                    <img src="src/img/papaalahuancaina.png" alt="Papa a la huancaina">
-                    <p class="main-product-text">Papa a la huancaina</p>
-                    <div class="main-product-description">Sliced potatoes w/special peruvian hot yellow pepper</div>
-                </div>
-                <div class="main-product">
-                    <div class="main-product-price">
-                        <p class="price">$6</p>
-                    </div>
-                    <img src="src/img/ensalada.png" alt="ensalada">
-                    <p class="main-product-text">Ensalada</p>
-                    <div class="main-product-description">Sliced potatoes w/special peruvian hot yellow pepper</div>
-                </div>
-                <div class="main-product">
-                    <div class="main-product-price">
-                        <p class="price">$12</p>
-                    </div>
-                    <img src="src/img/chorosalachalaca.png" alt="choros a la chalaca">
-                    <p class="main-product-text">Choros a la chalaca</p>
-                    <div class="main-product-description">Mussels peruvian style</div>
-                </div>
-                <div class="main-product">
-                    <div class="main-product-price">
-                        <p class="price">$7</p>
-                    </div>
-                    <img src="src/img/salchipapa.png" alt="salchipapa">
-                    <p class="main-product-text">Salchipapa</p>
-                    <div class="main-product-description">Fried franks with fries</div>
-                </div>
+            <div id="main-product-container-id" class="main-product-container">
+
             </div>
         </main>
     </div>
+
+    <template id="template-main-product">
+        <div class="main-product">
+            <div class="main-product-price-container">
+                <p class="main-product-price-number"> $${item.price}</p>
+            </div>
+            <img ${item.image} alt="Anticuchos">
+            <p class="main-product-name">${item.name}</p>
+            <div class="main-product-description">${item.description}</div>
+        </div>
+    </template>
+
+    <script>
+        // Click button Appetizer
+        const btnAppetizer = document.querySelector("#category1");
+
+        btnAppetizer.addEventListener("click", (huihui) => {
+            unselectAllCategories()
+            selectedCategory("#category1")
+            addProductsAppetizer()
+        });
+
+        function addProductsAppetizer() {
+            let container = document.getElementById("main-product-container-id")
+            deleteChild()
+
+            let appetizer = [{
+                price: "8",
+                image: "build/img/papaalahuancaina.avif",
+                name: "Papa a la Huancaina",
+                description: "Sliced potatoes w/special peruvian hot yellow pepper"
+            }, {
+                price: "6",
+                image: "build/img/ensalada.avif",
+                name: "Ensalada",
+                description: "House Salad"
+            }, {
+                price: "13",
+                image: "build/img/anticuchos.avif",
+                name: "Anticuchos",
+                description: "Peruvian style cow heart shish kaob"
+            }, {
+                price: "12",
+                image: "build/img/chorosalachalaca.avif",
+                name: "Choros a la chalaca",
+                description: "Mussels peruvian style"
+            }, {
+                price: "7",
+                image: "build/img/salchipapa.avif",
+                name: "Salchipapas",
+                description: "Fried franks with fries"
+            }]
+
+            const templateAppetizer = document.querySelector('#template-main-product').content;
+            const fragmentAppetizer = document.createDocumentFragment();
+
+            appetizer.forEach(item => {
+                templateAppetizer.querySelector('.main-product-price-number').textContent = item.price
+                templateAppetizer.querySelector('.main-product-name').textContent = item.name
+                templateAppetizer.querySelector('.main-product-description').textContent = item.description
+                templateAppetizer.querySelector("img").setAttribute("src", item.image)
+
+                const clone = templateAppetizer.cloneNode(true)
+                fragmentAppetizer.appendChild(clone)
+            })
+
+            container.appendChild(fragmentAppetizer)
+        }
+
+        // Click to botton Pastas
+        const btnPastas = document.querySelector("#category2");
+
+        btnPastas.addEventListener("click", () => {
+            unselectAllCategories()
+            selectedCategory("#category2")
+            addProductsPastas()
+        });
+
+        function addProductsPastas() {
+            let container = document.getElementById("main-product-container-id")
+            deleteChild()
+
+            let pastas = [{
+                price: "8",
+                image: "build/img/tallarineschinosdepollo.avif",
+                name: "Tallarines chinos de pollo",
+                description: "Linguini with chinisse chicken"
+            }, {
+                price: "19",
+                image: "build/img/tallarinesverdesconbistec.avif",
+                name: "Tallarines verdes con bistec",
+                description: "Linguini with grilled beef in pesto sauce"
+            }, {
+                price: "18",
+                image: "build/img/tallarinsaltadodecarne.avif",
+                name: "Tallarin saltado de carne",
+                description: "Linguini with beef strips in a tomato and onion sauce"
+            }, {
+                price: "22",
+                image: "build/img/tallarinsaltadodemariscos.avif",
+                name: "Tallarin saltado de marisco",
+                description: "Linguini with mixed seafood in a tomato and onion sauce"
+            }, {
+                price: "16",
+                image: "build/img/tallarinsaltadodepollo.avif",
+                name: "Tallarin saltado de pollo",
+                description: "Linguini with chicken in a tomato and onion sauce"
+            }]
+
+            const templatePastas = document.querySelector('#template-main-product').content;
+            const fragmentPastas = document.createDocumentFragment();
+
+            pastas.forEach(item => {
+                templatePastas.querySelector('.main-product-price-number').textContent = item.price
+                templatePastas.querySelector('.main-product-name').textContent = item.name
+                templatePastas.querySelector('.main-product-description').textContent = item.description
+                templatePastas.querySelector("img").setAttribute("src", item.image)
+
+                const clone = templatePastas.cloneNode(true)
+                fragmentPastas.appendChild(clone)
+            })
+
+            container.appendChild(fragmentPastas)
+        }
+
+        // Click to botton TacuTacu
+        const btnTacuTacu = document.querySelector("#category3");
+
+        btnTacuTacu.addEventListener("click", () => {
+            unselectAllCategories()
+            selectedCategory("#category3")
+            addProductsTacuTacu()
+        });
+
+        function addProductsTacuTacu() {
+            let container = document.getElementById("main-product-container-id")
+            deleteChild()
+
+            let TacuTacus = [{
+                price: "19",
+                image: "build/img/tacutacuconbistec.avif",
+                name: "Tacu tacu con bistec",
+                description: "Mixed rice and beans with grilled steak"
+            }, {
+                price: "22",
+                image: "build/img/tallarinesverdesconbistec.avif",
+                name: "Tacu tacu en salsa de mariscos",
+                description: "Rice and beans mixed with seafood and sauce - Chef's Special"
+            }]
+
+            const templateTacuTacu = document.querySelector('#template-main-product').content;
+            const fragmentTacuTacu = document.createDocumentFragment();
+
+            TacuTacus.forEach(item => {
+                templateTacuTacu.querySelector('.main-product-price-number').textContent = item.price
+                templateTacuTacu.querySelector('.main-product-name').textContent = item.name
+                templateTacuTacu.querySelector('.main-product-description').textContent = item.description
+                templateTacuTacu.querySelector("img").setAttribute("src", item.image)
+
+                const clone = templateTacuTacu.cloneNode(true)
+                fragmentTacuTacu.appendChild(clone)
+            })
+
+            container.appendChild(fragmentTacuTacu)
+        }
+
+        // Click to botton TacuTacu
+        const btnCeviche = document.querySelector("#category4");
+
+        btnCeviche.addEventListener("click", () => {
+            unselectAllCategories()
+            selectedCategory("#category4")
+            addProductsCeviche()
+        });
+
+        function addProductsCeviche() {
+            let container = document.getElementById("main-product-container-id")
+            deleteChild()
+
+            let Ceviches = [{
+                price: "22",
+                image: "build/img/cevichedecamarones.avif",
+                name: "Ceviche de camarones",
+                description: "Shrimp cooked in special lemon juice"
+            }, {
+                price: "19",
+                image: "build/img/cevichemixto.avif",
+                name: "Ceviche mixto",
+                description: "Shrimp, fish and calamari cooked in lemon juice"
+            }, {
+                price: "18",
+                image: "build/img/tiradito.avif",
+                name: "Tiradito",
+                description: "Fish strips in special hot yellow pepper sauce"
+            }, {
+                price: "15",
+                image: "build/img/lechedetigre.avif",
+                name: "Leche de tigre",
+                description: "Fish strips marinated in lemon juice with a touch of milk"
+            }]
+
+            const templateCeviche = document.querySelector('#template-main-product').content;
+            const fragmentCeviche = document.createDocumentFragment();
+
+            Ceviches.forEach(item => {
+                templateCeviche.querySelector('.main-product-price-number').textContent = item.price
+                templateCeviche.querySelector('.main-product-name').textContent = item.name
+                templateCeviche.querySelector('.main-product-description').textContent = item.description
+                templateCeviche.querySelector("img").setAttribute("src", item.image)
+
+                const clone = templateCeviche.cloneNode(true)
+                fragmentCeviche.appendChild(clone)
+            })
+
+            container.appendChild(fragmentCeviche)
+        }
+
+        // Click to botton Chifa
+        const btnChifa = document.querySelector("#category5");
+
+        btnChifa.addEventListener("click", () => {
+            unselectAllCategories()
+            selectedCategory("#category5")
+            addProductsChifa()
+        });
+
+        function addProductsChifa() {
+            let container = document.getElementById("main-product-container-id")
+            deleteChild()
+
+            let Chifas = [{
+                price: "21",
+                image: "build/img/arrozchaufaconmariscos.avif",
+                name: "Arroz chaufa con mariscos",
+                description: "Seafood fried rice/shrimp fried rice"
+            }, {
+                price: "23",
+                image: "build/img/arrozchaufaconcamarones.avif",
+                name: "Arroz chaufa con camarones",
+                description: "Shrimps and Rice fried"
+            }, {
+                price: "16",
+                image: "build/img/arrozchaufadepollo.avif",
+                name: "Arroz chaufa de pollo",
+                description: "Arroz chaufa de pollo"
+            }, {
+                price: "16",
+                image: "build/img/polloconpiña.avif",
+                name: "Pollo con piña",
+                description: "Chicken with pineapple served with white rice"
+            }]
+
+            const templateChifa = document.querySelector('#template-main-product').content;
+            const fragmentChifa = document.createDocumentFragment();
+
+            Chifas.forEach(item => {
+                templateChifa.querySelector('.main-product-price-number').textContent = item.price
+                templateChifa.querySelector('.main-product-name').textContent = item.name
+                templateChifa.querySelector('.main-product-description').textContent = item.description
+                templateChifa.querySelector("img").setAttribute("src", item.image)
+
+                const clone = templateChifa.cloneNode(true)
+                fragmentChifa.appendChild(clone)
+            })
+
+            container.appendChild(fragmentChifa)
+        }
+
+        // Global
+        function deleteChild() {
+            var container = document.getElementById("main-product-container-id");
+
+            var child = container.lastElementChild;
+            while (child) {
+                container.removeChild(child);
+                child = container.lastElementChild;
+            }
+        }
+
+        function unselectAllCategories() {
+            console.log("unselectAllCategories")
+            let list = document.querySelectorAll(".nav-category")
+            list.forEach(item => {
+                item.classList.remove('nav-category-background-active');
+            })
+        }
+
+        function selectedCategory(categoryName) {
+            console.log("selectedCategory")
+            let category = document.querySelector(categoryName)
+            console.log(category)
+            category.classList.add('nav-category-background-active');
+        }
+    </script>
 </body>
 
 </html>
